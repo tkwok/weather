@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="weatherApp">
+    <!-- this 'weatherApp' now has this view -->
+    <head>
+        <title>Weather</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+        
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+        <!-- angularjs -->
+        <script src="https://code.angularjs.org/1.6.0/angular.min.js"></script>        
+        <script src="https://code.angularjs.org/1.6.0/angular-messages.min.js"></script>
+        <script src="https://code.angularjs.org/1.6.0/angular-resource.min.js"></script>
+        <script src="https://code.angularjs.org/1.6.0/angular-route.min.js"></script>
+
+        <script src="app.js"></script>
+        <script src="appConstants.js"></script>
+        <script src="routes.js"></script>
+        <script src="configs.js"></script>
+        <script src="services.js"></script>
+        <script src="controllers.js"></script>
+        <script src="directives.js"></script>
+        
+        <style>
+            html, body, input, select, textarea {
+                font-size: 1.05em !important;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">Weather</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        
+        <div class="container">
+            <!-- need ng-view for routing -->
+            <div ng-view></div>
+    </body>
+</html>
