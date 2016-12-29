@@ -1,4 +1,7 @@
-# weather
+# Weather SPA
+Tony Kwok
+Front-End Software Engineer
+
 AngularJS Weather App
 
 
