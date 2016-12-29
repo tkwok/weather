@@ -8,4 +8,4 @@ Bootstrap
 HTML5
 
 
-Preview: http://someblackbox.myds.me/
+Preview: http://someblackbox.myds.me/weather
