@@ -1,9 +1,11 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Weather on {{ convertToDate({dt: weatherDay.dt}) | date: dateFormat }}</h3>    
+        <h3 class="panel-title">Weather Forecast For {{ convertToDate({dt: weatherDay.dt}) | date: dateFormat }}</h3>    
     </div>
     <div class="panel-body">
-        Forecast: {{ weatherDay.weather[0].description}} </br>
+        <img ng-src="http://openweathermap.org/img/w/{{ weatherDay.weather[0].icon}}.png"></img></br>
+
+        Forecast: {{ capFirstLetters(weatherDay.weather[0].description) }} </br>
 
         Daytime temperature: {{ convertToStandard({dayTimeTemp: weatherDay.temp.day}) }} </br>
         Nighttime temperature: {{ convertToStandard({dayTimeTemp: weatherDay.temp.night}) }} </br>

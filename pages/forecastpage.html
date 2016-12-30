@@ -2,16 +2,17 @@
     <a href="#!/">Back to Search</a>
 </p>
 <h1>Forecast Page</h1>
-<h5>Forecast for {{city}}</h5>
+<h5>Forecast for {{city}}, {{ weatherResult.city.country }}</h5>
 </hr>
+<div>
 Days: <a href="#!/forecast/2" ng-class="{ 'bg-primary': days === '2'}">2</a> | 
 <a href="#!/forecast/5" ng-class="{ 'bg-primary': days === '5'}">5</a> |
 <a href="#!/forecast/7" ng-class="{ 'bg-primary': days === '7'}">7</a>
-
+</div>
 <div ng-repeat="weather in weatherResult.list">
     <div class="row">
         <div class="col-md-12">
-            <custom-weather convert-to-date="convertToDate(dt)" convert-to-standard="convertToFahrenheit(dayTimeTemp)" weather-day="weather" date-format="EEE, MMM d, y"></custom-weather>
+            <custom-weather convert-to-date="convertToDate(dt)" convert-to-standard="convertToFahrenheit(dayTimeTemp)" weather-day="weather" date-format="{{dateFormat}}"></custom-weather>
         </div>
     </div>
 </div>
