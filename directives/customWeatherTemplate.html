@@ -1,8 +1,4 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Weather Forecast For {{ convertToDate({dt: weatherDay.dt}) | date: dateFormat }}</h3>    
-    </div>
-    <div class="panel-body">
+Weather Forecast For {{ convertToDate({dt: weatherDay.dt}) | date: dateFormat }} </br>   
         <img ng-src="http://openweathermap.org/img/w/{{ weatherDay.weather[0].icon}}.png"></img></br>
 
         Forecast: {{ capFirstLetters(weatherDay.weather[0].description) }} </br>
@@ -12,5 +8,3 @@
         High: {{ convertToStandard({dayTimeTemp: weatherDay.temp.min}) }} </br>
 Low: {{ convertToStandard({dayTimeTemp: weatherDay.temp.max}) }} </br>
         Humidity: {{ weatherDay.humidity }}% </br>
-    </div>
-</div>

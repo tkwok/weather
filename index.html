@@ -10,44 +10,57 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
         <!-- Bootstrap -->
+<!--
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
     
+        <link rel="stylesheet" href="style.css"/>
         <!-- angularjs -->
-        <script src="https://code.angularjs.org/1.6.0/angular.min.js"></script>        
+        <script src="https://code.angularjs.org/1.6.0/angular.min.js"></script>       
         <script src="https://code.angularjs.org/1.6.0/angular-messages.min.js"></script>
         <script src="https://code.angularjs.org/1.6.0/angular-resource.min.js"></script>
         <script src="https://code.angularjs.org/1.6.0/angular-route.min.js"></script>
-
+        
+        <!-- for angular material -->
+        <script src="https://code.angularjs.org/1.6.0/angular-aria.min.js"></script>
+        <script src="https://code.angularjs.org/1.6.0/angular-animate.min.js"></script>
+        
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css"/>
+          <!-- Angular Material Library -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+        
+        <!-- angularjs app js files -->
         <script src="app.js"></script>
-        <script src="appConstants.js"></script>
+        <script src="common/appConstants.js"></script>
+        <script src="common/commonServices.js"></script>
         <script src="routes.js"></script>
         <script src="configs.js"></script>
         <script src="services.js"></script>
         <script src="controllers.js"></script>
         <script src="directives.js"></script>
-        
-        <style>
-            html, body, input, select, textarea {
-                font-size: 1.05em !important;
-            }
-        </style>
     </head>
     <body>
-        <header>
-            <nav class="navbar navbar-default">
-                <div class="container">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="/">Weather</a>
-                    </div>
-                    <ul class="nav navbar-nav navbar-right">
-                    </ul>
-                </div>
-            </nav>
-        </header>
+        <div layout="column" layout-fill>
+  <md-toolbar>
+
+    <div class="md-toolbar-tools">
+      <span>Weather</span>
+
+      <!-- fill up the space between left and right area -->
+      <span flex></span>
+    </div>
+
+  </md-toolbar>
+  <md-content>
         
         <div class="container">
             <!-- need ng-view for routing -->
             <div ng-view></div>
+            </div>
+</md-content>
+
+        
+
     </body>
 </html>

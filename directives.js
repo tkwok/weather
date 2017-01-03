@@ -5,7 +5,7 @@
        return {
             templateUrl: 'directives/customWeatherTemplate.html',
             restrict: 'E',
-            replace: true,
+            replace: false,
             scope: {
                 weatherDay: "=",
                 convertToDate: '&',

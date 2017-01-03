@@ -1,11 +1,24 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <h4>Forecast by City, State</h4>
-        <form ng-submit="submit()">
-            <div class="form-group">
-                <input type="text" ng-model="city" class="form-control"/>
+<!--        -->
+        <form name="cityNameForm" ng-submit="submit()" layout layout-align="center" layout-padding novalidate>
+              <div layout="row" flex>
+
+                  <div flex="80">
+                <md-input-container name="cityName" layout="row" layout-align="center center">
+                                <label>City, State Name</label>
+                    <input type="text" name="cityName" ng-model="city" class="form-control" required autofocus/>
+                        <div ng-messages="cityNameForm.cityName.$error">
+                            <div ng-message="required">This is required!</div>
+                        </div>
+                    
+                </md-input-container>
+
+                    </div>
+                      <div flex="20">
+                    <md-button type="submit" class="md-accent md-raised">Get Forecast</md-button>
+                          </div >
             </div>
-            <input type="submit" class="btn btn-primary" value="Get Forecast"/>
         </form>
     </div>
 </div>

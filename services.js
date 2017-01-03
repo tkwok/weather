@@ -1,11 +1,11 @@
 /* Created by Tony Kwok on 12/29/2916 */
 
 (function() {
-    weatherApp.service('forecastService', function() {
+    weatherApp.service('forecastService', ['appConstants', function(appConstants) {
         var self = this;
 
         // default city, private variable
-        this.city = "San Francisco, CA";
+        this.city = angular.copy(appConstants.DEFAULT_CITY);
         
         // city getter
         this.getCity = function() {
@@ -13,9 +13,9 @@
         };
         // city setter
         this.setCity = function(city) {
-            this.city = self.city;
-        }
-    });
+            self.city = city;
+        };
+    }]);
 
     weatherApp.service('weatherService', ['$resource', 'appConstants', function($resource, appConstants) {
 
