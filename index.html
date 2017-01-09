@@ -1,66 +1,95 @@
 <!DOCTYPE html>
 <html lang="en-us" ng-app="weatherApp">
-    <!-- this 'weatherApp' now has this view -->
-    <head>
-        <title>Weather</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <meta charset="UTF-8">
-        
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<!-- this 'weatherApp' now has this view -->
 
-        <!-- Bootstrap -->
-<!--
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
--->
+<head>
+    <title>WeatherIma</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- angularjs -->
+    <script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.1/angular-messages.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.1/angular-resource.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.1/angular-route.min.js"></script>
+    <!-- for angular material -->
+    <script src="https://code.angularjs.org/1.6.1/angular-aria.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.1/angular-animate.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css" />
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
     
-        <link rel="stylesheet" href="style.css"/>
-        <!-- angularjs -->
-        <script src="https://code.angularjs.org/1.6.0/angular.min.js"></script>       
-        <script src="https://code.angularjs.org/1.6.0/angular-messages.min.js"></script>
-        <script src="https://code.angularjs.org/1.6.0/angular-resource.min.js"></script>
-        <script src="https://code.angularjs.org/1.6.0/angular-route.min.js"></script>
-        
-        <!-- for angular material -->
-        <script src="https://code.angularjs.org/1.6.0/angular-aria.min.js"></script>
-        <script src="https://code.angularjs.org/1.6.0/angular-animate.min.js"></script>
-        
-        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css"/>
-          <!-- Angular Material Library -->
-        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-        
-        <!-- angularjs app js files -->
-        <script src="app.js"></script>
-        <script src="common/appConstants.js"></script>
-        <script src="common/commonServices.js"></script>
-        <script src="routes.js"></script>
-        <script src="configs.js"></script>
-        <script src="services.js"></script>
-        <script src="controllers.js"></script>
-        <script src="directives.js"></script>
-    </head>
-    <body>
-        <div layout="column" layout-fill>
-  <md-toolbar>
+    <!-- Google Places API -->
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key="></script>
+    
+    <!-- angularjs app js files -->
+    <script src="app.js"></script>
+    <script src="common/appConstants.js"></script>
+    <script src="common/commonServices.js"></script>
+    <script src="routes.js"></script>
+    <script src="configs.js"></script>
+    <script src="services.js"></script>
+    <script src="controllers.js"></script>
+    <script src="directives.js"></script>
+</head>
 
-    <div class="md-toolbar-tools">
-      <span>Weather</span>
+<body>
+    
+    <div ng-controller="appController">
+    <md-toolbar>
+        <div class="md-toolbar-tools" ng-hide="showSearchBarDiv">
+            <md-button class="md-icon-button" aria-label="Icon" ng-click="toggleLeft()">
+                <md-tooltip>Menu</md-tooltip>
+                    <i class="material-icons">menu</i>
+            </md-button>
+            <h2>
+              <span>WeatherIma</span>
+            </h2>
+                <span flex></span>
+            <md-button class="md-icon-button" show-gt-sm hide-sm>
+                <md-tooltip>Pen</md-tooltip> <i class="material-icons">edit</i> </md-button>
+            <md-button class="md-icon-button" show-gt-sm hide-sm>
+                <md-tooltip>Messages</md-tooltip> <i class="material-icons">mail</i> </md-button>
+            <md-button class="md-icon-button" show-gt-sm hide-sm>
+                <md-tooltip>User</md-tooltip> <i class="material-icons">perm_identity</i> </md-button>
+            <md-button class="md-icon-button" show-gt-sm hide-sm>
+                <md-tooltip>Settings</md-tooltip> <i class="material-icons">settings</i> </md-button>
+        </div>
+    </md-toolbar>
+    
+    <md-sidenav
+        md-disable-backdrop="false"
+        class="md-sidenav-left side-nav-top"
+        md-component-id="left"
+        md-whiteframe="4">
 
-      <!-- fill up the space between left and right area -->
-      <span flex></span>
-    </div>
-
-  </md-toolbar>
-  <md-content>
-        
-        <div class="container">
-            <!-- need ng-view for routing -->
-            <div ng-view></div>
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Login User</h1>
+      </md-toolbar>
+      <md-content layout-padding ng-controller="sideNavController">
+      </md-content>
+    </md-sidenav>
+    
+    <md-content flex layout-padding layout="row" class="main">
+            <div class="panel" flex="20" show-gt-md hide-sm hide-md></div>
+            <div class="panel" flex="60" flex-sm="100" flex-md="70">
+                <!-- need ng-view for routing -->
+                <div ng-view></div>
             </div>
-</md-content>
-
+            <div class="panel" flex="20" show-gt-md hide-sm hide-md></div>
+    </md-content>
+    
+        <footer>
+      <div class="md-scroll-shrink">
+        <div layout="row" layout-align="center center" flex>
+          Copyright 2017 Tony Kwok. All rights reserved.
+        </div>
+      </div>
+    </footer>
         
+        </div>
+</body>
 
-    </body>
 </html>

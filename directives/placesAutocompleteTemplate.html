@@ -1,0 +1,22 @@
+<div class="full-width">
+  <md-autocomplete md-no-cache="false" 
+                   md-selected-item="ngModel" 
+                   ng-model-options="{debounce: 600}" 
+                   md-search-text-change="search(searchText)" 
+                   md-search-text="searchText" 
+                   md-items="item in search(searchText)"
+                   md-item-text="item.description" 
+                   md-min-length="3" 
+                   md-max-length="50" 
+                   placeholder="Type in your address" 
+                   md-floating-label="Enter City Name" required>
+    <md-item-template>
+      <span md-highlight-text="searchText" md-highlight-flags="^i">
+          {{item.description}}
+        </span>
+    </md-item-template>
+    <md-not-found>
+      No city matches found for "{{searchText}}".
+    </md-not-found>
+  </md-autocomplete>
+</div>

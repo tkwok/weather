@@ -1,24 +1,16 @@
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-<!--        -->
-        <form name="cityNameForm" ng-submit="submit()" layout layout-align="center" layout-padding novalidate>
-              <div layout="row" flex>
-
-                  <div flex="80">
-                <md-input-container name="cityName" layout="row" layout-align="center center">
-                                <label>City, State Name</label>
-                    <input type="text" name="cityName" ng-model="city" class="form-control" required autofocus/>
-                        <div ng-messages="cityNameForm.cityName.$error">
-                            <div ng-message="required">This is required!</div>
-                        </div>
-                    
-                </md-input-container>
-
-                    </div>
-                      <div flex="20">
-                    <md-button type="submit" class="md-accent md-raised">Get Forecast</md-button>
-                          </div >
+<form name="cityNameForm" ng-submit="submit()" layout-padding novalidate>
+    <div layout="column" layout-align="center center" class="min-height">
+        
+        <places-autocomplete-directive ng-model="forecast.selectedCity"></places-autocomplete-directive>
+        
+        <div ng-messages="cityNameForm.$error" ng-show="cityNameForm.$dirty">
+            <div ng-message="required">
+                No city name entered
             </div>
-        </form>
+        </div>
+        
+        <div>
+            <md-button type="submit" class="md-raised">Get Forecast</md-button>
+        </div>
     </div>
-</div>
+</form>

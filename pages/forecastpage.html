@@ -1,38 +1,23 @@
-<p>
+<div layout="column" layout-md="column" layout-sm="column" layout-padding> 
     <a href="#!/">Back to Search</a>
-</p>
-<h1>Forecast Page</h1>
-<h5>Forecast for {{city}}, {{ weatherResult.city.country }}</h5>
-</hr>
-<div>
-Days: <a href="#!/forecast/2" ng-class="{ 'bg-primary': days === '2'}">2</a> | 
-<a href="#!/forecast/5" ng-class="{ 'bg-primary': days === '5'}">5</a> |
-<a href="#!/forecast/7" ng-class="{ 'bg-primary': days === '7'}">7</a>
+    <h5>Forecast for {{city}}, {{ weatherResult.city.country }}</h5> </hr>
+
+      <div layout="row" layout-align="space-between center">
+        <span>Forecast Days</span>
+        <md-select ng-model="forecast.selectedDays" placeholder="Nothing" class="md-no-underline" ng-change="onForecastDaysChanged()">
+            <md-option ng-repeat="days in forecast.days" 
+                       ng-value="days">
+              {{days.displayName}}
+            </md-option>
+        </md-select>
+      </div>
+
+    <md-tabs md-selected="selectedIndex">
+        <md-tab ng-repeat="weather in weatherResult.list">
+            <md-tab-label> {{ convertToDate(weather.dt) | date: dateFormat }} </md-tab-label>
+            <md-tab-body>
+                <custom-weather convert-to-date="convertToDate(dt)" convert-to-standard="convertToFahrenheit(dayTimeTemp)" weather-day="weather" date-format="{{dateFormat}}"></custom-weather>
+            </md-tab-body>
+        </md-tab>
+    </md-tabs>
 </div>
-
-
-
-<md-tabs md-selected="selectedIndex">
-    <md-tab ng-repeat="weather in weatherResult.list">
-        <md-tab-label>
-               {{ convertToDate(weather.dt) | date: dateFormat }} 
-        </md-tab-label>
-        <md-tab-body>
-                        <custom-weather convert-to-date="convertToDate(dt)" convert-to-standard="convertToFahrenheit(dayTimeTemp)" weather-day="weather" date-format="{{dateFormat}}"></custom-weather>
-        </md-tab-body>
-<!--
-
-        
--->
-    </md-tab>
-</md-tabs>
-
-<!--
-
-<div ng-repeat="weather in weatherResult.list">
-    <div class="row">
-        <div class="col-md-12">
-            <custom-weather convert-to-date="convertToDate(dt)" convert-to-standard="convertToFahrenheit(dayTimeTemp)" weather-day="weather" date-format="{{dateFormat}}"></custom-weather>
-        </div>
-    </div>
-</div>-->

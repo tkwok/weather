@@ -1,3 +1,4 @@
+<div>
 Weather Forecast For {{ convertToDate({dt: weatherDay.dt}) | date: dateFormat }} </br>   
         <img ng-src="http://openweathermap.org/img/w/{{ weatherDay.weather[0].icon}}.png"></img></br>
 
@@ -8,3 +9,4 @@ Weather Forecast For {{ convertToDate({dt: weatherDay.dt}) | date: dateFormat }}
         High: {{ convertToStandard({dayTimeTemp: weatherDay.temp.min}) }} </br>
 Low: {{ convertToStandard({dayTimeTemp: weatherDay.temp.max}) }} </br>
         Humidity: {{ weatherDay.humidity }}% </br>
+</div>

@@ -1,3 +1,23 @@
 html, body, input, select, textarea {
     font-size: 1.05em !important;
 }
+
+.main {
+  min-height: calc(100vh - 100px);
+}
+
+.full-width {
+    width: 100%;
+}
+
+.background-image {
+    background-image: url("resources/bg.jpeg");
+}
+
+.min-height {
+    min-height: 500px;
+}
+
+.side-nav-top {
+    top: 48px !important;
+}

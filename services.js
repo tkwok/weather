@@ -5,7 +5,7 @@
         var self = this;
 
         // default city, private variable
-        this.city = angular.copy(appConstants.DEFAULT_CITY);
+        this.city = null;
         
         // city getter
         this.getCity = function() {
@@ -19,6 +19,7 @@
 
     weatherApp.service('weatherService', ['$resource', 'appConstants', function($resource, appConstants) {
 
+        /* TODO refactor this GET method to factory */
         this.getWeather = function(city, days) {
             // deep-copy to preserve constant purity and break two-way binding
             // add variables for better testability
@@ -27,6 +28,26 @@
                 weatherApi = $resource(weatherApiUrl, {get:{method: "JSONP"}});
             
             return weatherApi.get({q: city, cnt: days, appid: weatherApiKey}); 
+        };
+        
+        // queries Google Places Autocomplete API to get autocomplete by cities
+        this.getAutoComplete = function(userInput) {
+            var self = this;
+            
+            var autoCompleteApiKey = angular.copy(appConstants.AUTOCOMPLETE_API_KEY),
+                autoCompleteApiUrl = angular.copy(appConstants.AUTOCOMPLETE_API_URL),
+                autoCompleteApi = $resource(autoCompleteApiUrl, {get:{method: "JSONP"}});
+            
+            autoCompleteApi.get({input: userInput, key: autoCompleteApiKey, types: '(cities)'}).$promise.then(function(data) {
+                console.log(data);
+            }, function(reason) {
+                console.log(reason);
+            });
+            
+            return ['San Francisco'];
+
+            // return to function scope
+            
         };
 
     }]);
