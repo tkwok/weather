@@ -33,8 +33,9 @@
                 'ngModel': '='
             },
             controller: function ($scope, $q) {
+                /* TODO better error handling */
                 if (!google || !google.maps) {
-                    throw new Error('Google Maps JS library is not loaded!');
+                    throw new Error('Google Maps JavaScript S library is not loaded!');
                 }
                 else if (!google.maps.places) {
                     throw new Error('Google Maps JS library does not have the Places module');

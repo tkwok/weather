@@ -14,6 +14,6 @@
             .when('/forecast/:days', {
                 templateUrl: 'pages/forecastpage.html',
                 controller: 'forecastPageController'
-            });
+            })         
     });
 })();

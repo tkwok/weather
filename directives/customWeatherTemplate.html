@@ -1,12 +1,10 @@
-<div>
-Weather Forecast For {{ convertToDate({dt: weatherDay.dt}) | date: dateFormat }} </br>   
-        <img ng-src="http://openweathermap.org/img/w/{{ weatherDay.weather[0].icon}}.png"></img></br>
-
-        Forecast: {{ capFirstLetters(weatherDay.weather[0].description) }} </br>
-
-        Daytime temperature: {{ convertToStandard({dayTimeTemp: weatherDay.temp.day}) }} </br>
-        Nighttime temperature: {{ convertToStandard({dayTimeTemp: weatherDay.temp.night}) }} </br>
-        High: {{ convertToStandard({dayTimeTemp: weatherDay.temp.min}) }} </br>
-Low: {{ convertToStandard({dayTimeTemp: weatherDay.temp.max}) }} </br>
-        Humidity: {{ weatherDay.humidity }}% </br>
+<div class="md-list-item-text" layout="column">
+    <h2 class="no-margin-top">{{ convertToDate({dt: weatherDay.dt}) | date: dateFormat }}</h2>
+    <h3><img ng-src="http://openweathermap.org/img/w/{{ weatherDay.weather[0].icon}}.png"></img></h3>
+{{ capFirstLetters(weatherDay.weather[0].description) }}</br>
+Daytime temperature: {{ convertToStandard({dayTimeTemp: weatherDay.temp.day}) }}</br>
+Nighttime temperature: {{ convertToStandard({dayTimeTemp: weatherDay.temp.night}) }} </br>
+High: {{ convertToStandard({dayTimeTemp: weatherDay.temp.min}) }}</br>
+Low: {{ convertToStandard({dayTimeTemp: weatherDay.temp.max}) }}</br>
+Humidity: {{ weatherDay.humidity }} %</br>
 </div>

@@ -24,6 +24,12 @@
     <!-- Google Places API -->
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key="></script>
     
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <!-- loDash -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+    
     <!-- angularjs app js files -->
     <script src="app.js"></script>
     <script src="common/appConstants.js"></script>
@@ -58,21 +64,44 @@
                 <md-tooltip>Settings</md-tooltip> <i class="material-icons">settings</i> </md-button>
         </div>
     </md-toolbar>
-    
+
+    <!-- TODO make this directive -->
     <md-sidenav
         md-disable-backdrop="false"
         class="md-sidenav-left side-nav-top"
         md-component-id="left"
         md-whiteframe="4">
 
-      <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Login User</h1>
+      <md-toolbar class="md-tall md-hue-2">
+        
+           <span flex></span>
+        <div layout="column" class="md-toolbar-tools-bottom inset">
+          <user-avatar></user-avatar>
+          <span></span>
+          <div>Firstname Lastname</div>
+          <div>email@domainname.com</div>
+        </div>
+          
+          
       </md-toolbar>
-      <md-content layout-padding ng-controller="sideNavController">
-      </md-content>
+      <md-list>   
+          <md-item>
+        <a>
+          <md-item-content md-ink-ripple layout="row" layout-align="start center">
+            <div class="inset">
+              <ng-md-icon icon="#"></ng-md-icon>
+            </div>
+            <div class="inset">Title
+            </div>
+          </md-item-content>
+        </a>
+      </md-item>  
+                <md-divider></md-divider>
+
+    </md-list>
     </md-sidenav>
     
-    <md-content flex layout-padding layout="row" class="main">
+    <md-content flex layout-padding layout="row" class="main" class="background-image">
             <div class="panel" flex="20" show-gt-md hide-sm hide-md></div>
             <div class="panel" flex="60" flex-sm="100" flex-md="70">
                 <!-- need ng-view for routing -->
@@ -84,7 +113,7 @@
         <footer>
       <div class="md-scroll-shrink">
         <div layout="row" layout-align="center center" flex>
-          Copyright 2017 Tony Kwok. All rights reserved.
+            Created by Tony Kwok 2017
         </div>
       </div>
     </footer>

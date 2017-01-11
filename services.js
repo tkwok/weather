@@ -44,10 +44,7 @@
                 console.log(reason);
             });
             
-            return ['San Francisco'];
-
-            // return to function scope
-            
+            return ['San Francisco'];            
         };
 
     }]);

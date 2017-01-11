@@ -3,7 +3,7 @@ html, body, input, select, textarea {
 }
 
 .main {
-  min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
 }
 
 .full-width {
@@ -20,4 +20,8 @@ html, body, input, select, textarea {
 
 .side-nav-top {
     top: 48px !important;
+}
+
+.no-margin-top {
+    margin-top: 0;
 }

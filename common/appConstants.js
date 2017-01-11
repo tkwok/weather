@@ -14,6 +14,34 @@
         homepage: {
             CITY_NOT_FOUND: 'Input City Not Found',
             SUBMIT_BUTTOM_LABEL: "Get Forecast"
+        },
+        forecastPage: {
+            FORECAST_TEMPERATURE_UNITS: [{
+               displayName: "Fahrenheit",
+               id: "fahrenheit",
+               symbol: "°F"
+            }, {
+               displayName: "Celsius",
+               id: "celsius",
+               symbol: "°C"
+            }],
+            FORECAST_DAYS: [{
+                id: 'forecastTwoDays',
+                displayName: "Next 2 Days",
+                nextDays: 2,
+                link: '#!/forecast/2'
+            },{
+                id: 'forecastFiveDays',
+                displayName: "Next 5 Days",
+                nextDays: 5,
+                link: '#!/forecast/5'
+            },{
+                id: 'forecastSevenDays',
+                displayName: "Next 7 Days",
+                nextDays: 7,
+                link: '#!/forecast/7'
+            }]
+        
         }
     });
 })();

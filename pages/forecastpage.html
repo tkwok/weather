@@ -1,23 +1,35 @@
 <div layout="column" layout-md="column" layout-sm="column" layout-padding> 
     <a href="#!/">Back to Search</a>
-    <h5>Forecast for {{city}}, {{ weatherResult.city.country }}</h5> </hr>
-
+    
+    <div ng-if="forecast.city">
       <div layout="row" layout-align="space-between center">
         <span>Forecast Days</span>
-        <md-select ng-model="forecast.selectedDays" placeholder="Nothing" class="md-no-underline" ng-change="onForecastDaysChanged()">
-            <md-option ng-repeat="days in forecast.days" 
-                       ng-value="days">
+        <md-select ng-model="forecast.selectedDays" placeholder="No Days" class="md-no-underline" ng-change="onForecastDaysChanged()">
+            <md-option ng-repeat="days in forecast.days" ng-value="days">
               {{days.displayName}}
             </md-option>
         </md-select>
+          
+        <span>Temperature Unit</span>
+        <md-select ng-model="forecast.selectedTempUnits" placeholder="No Temperature" class="md-no-underline" ng-change="onForecastTempUnitsChanged()">
+            <md-option ng-repeat="tempUnit in forecast.tempUnits" ng-value="tempUnit">
+              {{tempUnit.displayName}}
+            </md-option>
+        </md-select>  
       </div>
 
-    <md-tabs md-selected="selectedIndex">
-        <md-tab ng-repeat="weather in weatherResult.list">
-            <md-tab-label> {{ convertToDate(weather.dt) | date: dateFormat }} </md-tab-label>
-            <md-tab-body>
-                <custom-weather convert-to-date="convertToDate(dt)" convert-to-standard="convertToFahrenheit(dayTimeTemp)" weather-day="weather" date-format="{{dateFormat}}"></custom-weather>
-            </md-tab-body>
-        </md-tab>
-    </md-tabs>
+    <md-content>
+    <md-list flex>
+        <md-subheader class="md-no-sticky">
+            Weather Forecast For {{forecast.selectedDays.displayName}} In {{forecast.city}}, In {{forecast.selectedTempUnits.displayName}}
+        </md-subheader>
+
+        <md-list-item class="md-3-line md-long-text" ng-repeat="weather in weatherResult.list" ng-click="null">
+            
+                <custom-weather convert-to-date="convertToDate(dt)" convert-to-standard="forecast.selectedTempUnits.id === 'fahrenheit' ?convertToFahrenheit(dayTimeTemp, forecast.selectedTempUnits.symbol) : convertToCelsius(dayTimeTemp, forecast.selectedTempUnits.symbol)" weather-day="weather" date-format="{{dateFormat}}"></custom-weather>
+        
+        </md-list-item>
+        </md-list>    
+        </md-content>
+    </div>    
 </div>
