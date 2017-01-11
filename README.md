@@ -3,7 +3,7 @@ Tony Kwok
 - Front-End Software Engineer
 
 AngularJS Single-Page Application
-Preview URL: http://someblackbox.myds.me/weather
+- Preview URL: http://someblackbox.myds.me/weather
 
 Tech Features
 - JavaScript ES5
