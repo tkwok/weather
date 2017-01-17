@@ -6,10 +6,11 @@
     <title>WeatherIma</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta charset="UTF-8">
-
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css" />
     <!-- angularjs -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css" />
     <script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.6.1/angular-messages.min.js"></script>
     <script src="https://code.angularjs.org/1.6.1/angular-resource.min.js"></script>
@@ -17,19 +18,13 @@
     <!-- for angular material -->
     <script src="https://code.angularjs.org/1.6.1/angular-aria.min.js"></script>
     <script src="https://code.angularjs.org/1.6.1/angular-animate.min.js"></script>
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css" />
     <!-- Angular Material Library -->
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-    
     <!-- Google Places API -->
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key="></script>
-    
-    <!-- D3.js -->
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-
     <!-- loDash -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
-    
+        
     <!-- angularjs app js files -->
     <script src="app.js"></script>
     <script src="common/appConstants.js"></script>
@@ -37,88 +32,62 @@
     <script src="routes.js"></script>
     <script src="configs.js"></script>
     <script src="services.js"></script>
+    <script src="factories.js"></script>
     <script src="controllers.js"></script>
     <script src="directives.js"></script>
 </head>
 
 <body>
-    
     <div ng-controller="appController">
-    <md-toolbar>
-        <div class="md-toolbar-tools" ng-hide="showSearchBarDiv">
-            <md-button class="md-icon-button" aria-label="Icon" ng-click="toggleLeft()">
-                <md-tooltip>Menu</md-tooltip>
-                    <i class="material-icons">menu</i>
-            </md-button>
-            <h2>
+        <md-toolbar>
+            <div class="md-toolbar-tools" ng-hide="showSearchBarDiv">
+                <md-button class="md-icon-button" aria-label="Icon" ng-click="toggleLeft()">
+                    <md-tooltip>Menu</md-tooltip> <i class="material-icons">menu</i> </md-button>
+                <h2>
               <span>WeatherIma</span>
             </h2>
-                <span flex></span>
-            <md-button class="md-icon-button" show-gt-sm hide-sm>
-                <md-tooltip>Pen</md-tooltip> <i class="material-icons">edit</i> </md-button>
-            <md-button class="md-icon-button" show-gt-sm hide-sm>
-                <md-tooltip>Messages</md-tooltip> <i class="material-icons">mail</i> </md-button>
-            <md-button class="md-icon-button" show-gt-sm hide-sm>
-                <md-tooltip>User</md-tooltip> <i class="material-icons">perm_identity</i> </md-button>
-            <md-button class="md-icon-button" show-gt-sm hide-sm>
-                <md-tooltip>Settings</md-tooltip> <i class="material-icons">settings</i> </md-button>
-        </div>
-    </md-toolbar>
-
-    <!-- TODO make this directive -->
-    <md-sidenav
-        md-disable-backdrop="false"
-        class="md-sidenav-left side-nav-top"
-        md-component-id="left"
-        md-whiteframe="4">
-
-      <md-toolbar class="md-tall md-hue-2">
-        
-           <span flex></span>
-        <div layout="column" class="md-toolbar-tools-bottom inset">
-          <user-avatar></user-avatar>
-          <span></span>
-          <div>Firstname Lastname</div>
-          <div>email@domainname.com</div>
-        </div>
-          
-          
-      </md-toolbar>
-      <md-list>   
-          <md-item>
-        <a>
-          <md-item-content md-ink-ripple layout="row" layout-align="start center">
-            <div class="inset">
-              <ng-md-icon icon="#"></ng-md-icon>
             </div>
-            <div class="inset">Title
-            </div>
-          </md-item-content>
-        </a>
-      </md-item>  
-                <md-divider></md-divider>
-
-    </md-list>
-    </md-sidenav>
-    
-    <md-content flex layout-padding layout="row" class="main" class="background-image">
-            <div class="panel" flex="20" show-gt-md hide-sm hide-md></div>
-            <div class="panel" flex="60" flex-sm="100" flex-md="70">
-                <!-- need ng-view for routing -->
-                <div ng-view></div>
-            </div>
-            <div class="panel" flex="20" show-gt-md hide-sm hide-md></div>
-    </md-content>
-    
+        </md-toolbar>
+        <!-- TODO make this directive -->
+        <md-content flex>
+            <md-sidenav md-disable-backdrop="false" class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+                <md-toolbar class="md-medium-tall md-hue-2"> <span flex></span>
+                    <div layout="column" class="md-toolbar-tools-bottom inset">
+                        <user-avatar></user-avatar> <span></span>
+                        <div>Firstname Lastname</div>
+                        <div>email@domainname.com</div>
+                    </div>
+                </md-toolbar>
+                <md-list>
+                    <md-item>
+            
+                            <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                                <div class="inset">
+                                    <ng-md-icon icon="#"></ng-md-icon>
+                                </div>
+                                <div class="inset">Manage Account</div>
+                            </md-item-content>
+                        
+                    </md-item>
+                    
+                    <md-divider></md-divider>
+                </md-list>
+            </md-sidenav>
+            <md-content flex layout-padding layout="row" class="main" class="background-image">
+                <div class="panel" flex="20" show-gt-md hide-sm hide-md></div>
+                <div class="panel" flex="60" flex-sm="100" flex-md="70">
+                    <!-- need ng-view for routing -->
+                    <div ng-view></div>
+                </div>
+                <div class="panel" flex="20" show-gt-md hide-sm hide-md></div>
+            </md-content>
+        </md-content>
         <footer>
-      <div class="md-scroll-shrink">
-        <div layout="row" layout-align="center center" flex>
-            Created by Tony Kwok 2017
-        </div>
-      </div>
-    </footer>
-        
-        </div>
+            <div class="md-scroll-shrink">
+                <div layout="row" layout-align="center center" flex> Created by Tony Kwok 2017 </div>
+            </div>
+        </footer>
+    </div>
 </body>
 
 </html>

@@ -18,10 +18,6 @@ html, body, input, select, textarea {
     min-height: 500px;
 }
 
-.side-nav-top {
-    top: 48px !important;
-}
-
 .no-margin-top {
     margin-top: 0;
 }

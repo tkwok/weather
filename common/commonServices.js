@@ -102,5 +102,9 @@
                 return times * self.multipleSelf(times, remain - 1);
             };
         }
+        
+        self.convertToFahrenheit = function (degK) {
+            return Math.round((1.8 * (degK - 273)) + 32);
+        };
     }]);
 })();

@@ -1,5 +1,4 @@
 /* Created by Tony Kwok on 12/29/2916 */
-
 (function() {
     weatherApp.service('forecastService', ['appConstants', function(appConstants) {
         var self = this;
@@ -23,8 +22,8 @@
         this.getWeather = function(city, days) {
             // deep-copy to preserve constant purity and break two-way binding
             // add variables for better testability
-            var weatherApiKey = angular.copy(appConstants.WEATHER_API_KEY),
-                weatherApiUrl = angular.copy(appConstants.WEATHER_API_URL),
+            var weatherApiKey = _.cloneDeep(appConstants.WEATHER_API_KEY),
+                weatherApiUrl = _.cloneDeep(appConstants.WEATHER_API_URL),
                 weatherApi = $resource(weatherApiUrl, {get:{method: "JSONP"}});
             
             return weatherApi.get({q: city, cnt: days, appid: weatherApiKey}); 
@@ -34,17 +33,13 @@
         this.getAutoComplete = function(userInput) {
             var self = this;
             
-            var autoCompleteApiKey = angular.copy(appConstants.AUTOCOMPLETE_API_KEY),
-                autoCompleteApiUrl = angular.copy(appConstants.AUTOCOMPLETE_API_URL),
+            var autoCompleteApiKey = _.cloneDeep(appConstants.AUTOCOMPLETE_API_KEY),
+                autoCompleteApiUrl = _.cloneDeep(appConstants.AUTOCOMPLETE_API_URL),
                 autoCompleteApi = $resource(autoCompleteApiUrl, {get:{method: "JSONP"}});
             
-            autoCompleteApi.get({input: userInput, key: autoCompleteApiKey, types: '(cities)'}).$promise.then(function(data) {
-                console.log(data);
-            }, function(reason) {
-                console.log(reason);
-            });
+            autoCompleteApi.get({input: userInput, key: autoCompleteApiKey, types: '(cities)'});
             
-            return ['San Francisco'];            
+            return [];            
         };
 
     }]);

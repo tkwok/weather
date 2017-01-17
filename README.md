@@ -1,21 +1,27 @@
-# Weather SPA
+# WeatherIma SPA
 Tony Kwok
-Front-End Software Engineer
+- Front-End Software Engineer
 
-AngularJS Weather App
+AngularJS Single-Page Application
+- Preview URL: http://someblackbox.myds.me/weather
 
+Tech Features
+- JavaScript ES5
+- AngularJS 1.6.0
+- loDash
+- Angular-Material UI library
+- HTML5/CSS3
+- D3.js charting
+- API access to openweather and Google Maps Places
 
-JavaScript ES5
-AngularJS 1.6.0
-Bootstrap
-HTML5
+User Features
+- Angular Material responsive UI styling
+- Autocomplete when entering city name, anywhere in the world
+- Weather of city in 2, 5, 7 days view
+- Change temperature unit of all forecasts between Celsius and Fahrenheit
+- Show temperature highs for next two days in bar chart (more features coming soon)
 
-
-Preview: http://someblackbox.myds.me/weather
-
-To-Do (Updated 01.03.2017)
-- Move from Bootstrap to Angular Materials 1.x
-- Add user login demonstrating use of hash tables saving user name, email address, and perferred city
-- Replace forecast days to dropdown
-- Add autocomplete to city name input, restrict proper name only to submit
+To-Do (Updated 01.11.2017)
+- Add D3.js to graph temperature trends for 2, 5, 7 days forecasts
+- Add user login to allow saving favorite city
 - Refactor code

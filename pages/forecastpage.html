@@ -1,7 +1,7 @@
 <div layout="column" layout-md="column" layout-sm="column" layout-padding> 
     <a href="#!/">Back to Search</a>
     
-    <div ng-if="forecast.city">
+    <div ng-if="forecast.cityName">
       <div layout="row" layout-align="space-between center">
         <span>Forecast Days</span>
         <md-select ng-model="forecast.selectedDays" placeholder="No Days" class="md-no-underline" ng-change="onForecastDaysChanged()">
@@ -16,12 +16,15 @@
               {{tempUnit.displayName}}
             </md-option>
         </md-select>  
-      </div>
+      </div>        
+    <md-content>        
 
-    <md-content>
+    <!-- d3 chart -->    
+    <bar-chart bar-height="100" bar-padding="5" data="weatherResult"></bar-chart>
+
     <md-list flex>
         <md-subheader class="md-no-sticky">
-            Weather Forecast For {{forecast.selectedDays.displayName}} In {{forecast.city}}, In {{forecast.selectedTempUnits.displayName}}
+            Weather Forecast For {{forecast.selectedDays.displayName}} In {{forecast.cityName}}, In {{forecast.selectedTempUnits.displayName}}
         </md-subheader>
 
         <md-list-item class="md-3-line md-long-text" ng-repeat="weather in weatherResult.list" ng-click="null">
@@ -29,7 +32,11 @@
                 <custom-weather convert-to-date="convertToDate(dt)" convert-to-standard="forecast.selectedTempUnits.id === 'fahrenheit' ?convertToFahrenheit(dayTimeTemp, forecast.selectedTempUnits.symbol) : convertToCelsius(dayTimeTemp, forecast.selectedTempUnits.symbol)" weather-day="weather" date-format="{{dateFormat}}"></custom-weather>
         
         </md-list-item>
-        </md-list>    
-        </md-content>
+    </md-list>    
+    </md-content>
     </div>    
+    
+
+    </div>
+    
 </div>

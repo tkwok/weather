@@ -22,6 +22,7 @@
                 return debounce(function () {
                     // Component lookup should always be available since we are not using `ng-if`
                     $mdSidenav(navID).toggle().then(function () {
+                        // TODO action goes here
                     });
                 }, 200);
             }
@@ -55,30 +56,20 @@
         init();
     }]);
     
-    
     weatherApp.controller('forecastPageController', ['$scope', '$routeParams', 'forecastService', 'weatherService', 'appConstants', function ($scope, $routeParams, forecastService, weatherService, appConstants) {
         
         $scope.dateFormat = _.cloneDeep(appConstants.WEATHER_DATE_FORMAT);
-        
-        // TODO refactor to single forecast object
         $scope.forecast = {
             cityName: forecastService.city,
             days: _.cloneDeep(appConstants.forecastPage.FORECAST_DAYS),
-            tempUnits: _.cloneDeep(appConstants.forecastPage.FORECAST_TEMPERATURE_UNITS)
+            tempUnits: _.cloneDeep(appConstants.forecastPage.FORECAST_TEMPERATURE_UNITS),
         };
         
-        $scope.forecast.selectedDays = $scope.forecast.days[0];
-        $scope.forecast.selectedTempUnits = $scope.forecast.tempUnits[0];
-
-
-        $scope.selectedIndex = 0;
-        
-        $scope.forecast.city = forecastService.city;
-        $scope.days = $routeParams.days || "2"; // default to 2 days
-        
-        
-        
-        $scope.weatherResult = weatherService.getWeather($scope.forecast.city, $scope.forecast.selectedDays.nextDays);
+        function init() {        
+            $scope.forecast.selectedDays = $scope.forecast.days[0];
+            $scope.forecast.selectedTempUnits = $scope.forecast.tempUnits[0];
+            $scope.weatherResult = weatherService.getWeather($scope.forecast.cityName, $scope.forecast.selectedDays.nextDays);
+        }
         
         // TODO Make these common services
         $scope.convertToCelsius = function (degK, symbol) {
@@ -94,10 +85,9 @@
         };
         
         $scope.onForecastDaysChanged = function() {            
-            $scope.weatherResult = weatherService.getWeather($scope.forecast.city, $scope.forecast.selectedDays.nextDays);
-        };
+            $scope.weatherResult = weatherService.getWeather($scope.forecast.cityName, $scope.forecast.selectedDays.nextDays);
+        };        
         
-        $scope.onForecastTempUnitsChanged = function() {
-        };
+        init();
     }]);
 })();
