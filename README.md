@@ -21,6 +21,10 @@ User Features
 - Change temperature unit of all forecasts between Celsius and Fahrenheit
 - Show temperature highs for next two days in bar chart (more features coming soon)
 
+- Autocomplete when entering city name
+- Weather of city in 2, 5, 7 days view
+- Change temperature unit of all forecasts on-the-fly
+
 To-Do (Updated 01.11.2017)
 - Add D3.js to graph temperature trends for 2, 5, 7 days forecasts
 - Add user login to allow saving favorite city
