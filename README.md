@@ -2,30 +2,30 @@
 Tony Kwok
 - Front-End Software Engineer
 
+
 AngularJS Single-Page Application
 - Preview URL: http://someblackbox.myds.me/weather
 
 Tech Features
 - JavaScript ES5
-- AngularJS 1.6.0
-- loDash
-- Angular-Material UI library
 - HTML5/CSS3
-- D3.js charting
+- AngularJS 1.6.1
+- Angular-Material UI library
+- loDash
+- D3.js - nvd3 charting
+- Angular-nvD3 directive support for nvd3
 - API access to openweather and Google Maps Places
 
 User Features
 - Angular Material responsive UI styling
 - Autocomplete when entering city name, anywhere in the world
 - Weather of city in 2, 5, 7 days view
-- Change temperature unit of all forecasts between Celsius and Fahrenheit
-- Show temperature highs for next two days in bar chart (more features coming soon)
-
+- Change temperature unit of all forecasts between Celsius and Fahrenheit on-the-fly
 - Autocomplete when entering city name
-- Weather of city in 2, 5, 7 days view
-- Change temperature unit of all forecasts on-the-fly
+- Show temperature highs, lows, humidity for next two, five, seven days selection in bar chart (NEW)
 
-To-Do (Updated 01.11.2017)
-- Add D3.js to graph temperature trends for 2, 5, 7 days forecasts
-- Add user login to allow saving favorite city
-- Refactor code
+To-Do (Updated 02.13.2017)
+- Add additional support to nvd3 to dynamic data
+- Prettify URL
+- Refactor code (module-based)
+- Exploring integration to Node.js runtime
