@@ -4,7 +4,7 @@
     weatherApp.constant('appConstants', {
         APP_NAME: "WeatherIma",
         /* remember to remove keys before push */
-        WEATHER_API_KEY: "",
+        WEATHER_API_KEY: "eb26b387e93955f5d1ac1181ece31d23",
         WEATHER_API_URL: "http://api.openweathermap.org/data/2.5/forecast/daily",
         AUTOCOMPLETE_API_KEY: "",
         AUTOCOMPLETE_API_URL: "https://maps.googleapis.com/maps/api/place/autocomplete/json?",
@@ -17,13 +17,23 @@
         },
         forecastPage: {
             FORECAST_TEMPERATURE_UNITS: [{
-               displayName: "Fahrenheit",
-               id: "fahrenheit",
-               symbol: "°F"
+                displayName: "Fahrenheit",
+                id: "fahrenheit",
+                symbol: "°F"
             }, {
-               displayName: "Celsius",
-               id: "celsius",
-               symbol: "°C"
+                displayName: "Celsius",
+                id: "celsius",
+                symbol: "°C"
+            }],
+            FORECAST_BAR_CHART_DATA_TYPES: [{
+                displayName: "Temperature Highs",
+                id: "tempHigh"
+            }, {
+                displayName: "Temperature Lows",
+                id: "tempLows"
+            }, {
+                displayName: "Humidity",
+                id: "humidity"
             }],
             FORECAST_DAYS: [{
                 id: 'forecastTwoDays',
@@ -40,8 +50,34 @@
                 displayName: "Next 7 Days",
                 nextDays: 7,
                 link: '#!/forecast/7'
-            }]
-        
+            }],
+            FORECAST_BAR_CHART_DATE_FORMAT: "MM/dd/yyyy",
+            FORECAST_BAR_CHART_OPTIONS: {
+                chart: {
+                    type: 'discreteBarChart',
+                    height: 450,
+                    margin : {
+                        top: 20,
+                        right: 20,
+                        bottom: 60,
+                        left: 55
+                    },
+                    x: function(d){ return d.label; },
+                    y: function(d){ return d.value; },
+                    showValues: true,
+                    valueFormat: function(d){
+                        return d3.format('.f')(d);
+                    },
+                    transitionDuration: 500,
+                    xAxis: {
+                        axisLabel: 'Days'
+                    },
+                    yAxis: {
+                        axisLabel: 'Temp',
+                        axisLabelDistance: -10
+                    }
+                }
+            }
         }
     });
 })();

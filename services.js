@@ -31,8 +31,6 @@
         
         // queries Google Places Autocomplete API to get autocomplete by cities
         this.getAutoComplete = function(userInput) {
-            var self = this;
-            
             var autoCompleteApiKey = _.cloneDeep(appConstants.AUTOCOMPLETE_API_KEY),
                 autoCompleteApiUrl = _.cloneDeep(appConstants.AUTOCOMPLETE_API_URL),
                 autoCompleteApi = $resource(autoCompleteApiUrl, {get:{method: "JSONP"}});

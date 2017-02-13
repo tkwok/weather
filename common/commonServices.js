@@ -1,5 +1,5 @@
 /* Created by Tony Kwok on 12/29/2916 */
-(function () {
+(function() {
     weatherApp.service('commonServices', [function () {
         /* Linked List Implementation
            O(1) constant for add/remove head/tail

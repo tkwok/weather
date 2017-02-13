@@ -1,5 +1,5 @@
 <div layout="column" layout-md="column" layout-sm="column" layout-padding> 
-    <a href="#!/">Back to Search</a>
+    <a href="/">Back to Search</a>
     
     <div ng-if="forecast.cityName">
       <div layout="row" layout-align="space-between center">
@@ -17,26 +17,32 @@
             </md-option>
         </md-select>  
       </div>        
+        
+      <div layout="row" layout-align="space-between center">
+        <span>Forecast Chart Data Types</span>
+        <md-select ng-model="barChart.selectedBarChartDataType" placeholder="No Type" class="md-no-underline" ng-change="onForecastTempUnitsChanged()">
+            <md-option ng-repeat="type in barChartDataTypes" ng-value="type">
+              {{type.displayName}}
+            </md-option>
+        </md-select> 
+      </div>
+        
+      <div layout="column">
+            <nvd3 options="barChartOptions" data="barChartData"></nvd3>
+      </div>
+        
     <md-content>        
+        <md-list flex>
+            <md-subheader class="md-no-sticky">
+                Weather Forecast For {{forecast.selectedDays.displayName}} In {{forecast.cityName}}, In {{forecast.selectedTempUnits.displayName}}
+            </md-subheader>
 
-    <!-- d3 chart -->    
-    <bar-chart bar-height="100" bar-padding="5" data="weatherResult"></bar-chart>
-
-    <md-list flex>
-        <md-subheader class="md-no-sticky">
-            Weather Forecast For {{forecast.selectedDays.displayName}} In {{forecast.cityName}}, In {{forecast.selectedTempUnits.displayName}}
-        </md-subheader>
-
-        <md-list-item class="md-3-line md-long-text" ng-repeat="weather in weatherResult.list" ng-click="null">
+            <md-list-item class="md-3-line md-long-text" ng-repeat="weather in weatherResult.list" ng-click="null">
             
                 <custom-weather convert-to-date="convertToDate(dt)" convert-to-standard="forecast.selectedTempUnits.id === 'fahrenheit' ?convertToFahrenheit(dayTimeTemp, forecast.selectedTempUnits.symbol) : convertToCelsius(dayTimeTemp, forecast.selectedTempUnits.symbol)" weather-day="weather" date-format="{{dateFormat}}"></custom-weather>
         
-        </md-list-item>
-    </md-list>    
+            </md-list-item>
+        </md-list>    
     </md-content>
     </div>    
-    
-
-    </div>
-    
 </div>

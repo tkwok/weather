@@ -6,6 +6,8 @@
     <title>WeatherIma</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta charset="UTF-8">
+    <base href="/">
+
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css" />
@@ -21,10 +23,16 @@
     <!-- Angular Material Library -->
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
     <!-- Google Places API -->
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key="></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDJ9HXAaiK3UOCqv30a7_EYHwiZ-bC_H_A"></script>
     <!-- loDash -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
-        
+    
+    <!-- d3/nvd3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.5/nv.d3.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.5/nv.d3.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-nvd3/1.0.9/angular-nvd3.min.js"></script>
+    
     <!-- angularjs app js files -->
     <script src="app.js"></script>
     <script src="common/appConstants.js"></script>
@@ -32,7 +40,6 @@
     <script src="routes.js"></script>
     <script src="configs.js"></script>
     <script src="services.js"></script>
-    <script src="factories.js"></script>
     <script src="controllers.js"></script>
     <script src="directives.js"></script>
 </head>
@@ -77,7 +84,7 @@
                 <div class="panel" flex="20" show-gt-md hide-sm hide-md></div>
                 <div class="panel" flex="60" flex-sm="100" flex-md="70">
                     <!-- need ng-view for routing -->
-                    <div ng-view></div>
+                    <div ng-view></div>                
                 </div>
                 <div class="panel" flex="20" show-gt-md hide-sm hide-md></div>
             </md-content>

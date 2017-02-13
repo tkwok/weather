@@ -1,11 +1,12 @@
 /* Created by Tony Kwok on 12/29/2916 */
 'use strict';
 
-var injectList = [
+var injectionList = [
     'ngRoute',
     'ngResource',
     'ngMessages',
-    'ngMaterial'
+    'ngMaterial',
+    'nvd3'
 ];
 
-var weatherApp = angular.module('weatherApp', injectList);
+var weatherApp = angular.module('weatherApp', injectionList);
