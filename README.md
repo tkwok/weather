@@ -25,7 +25,8 @@ User Features
 - Show temperature highs, lows, humidity for next two, five, seven days selection in bar chart (NEW)
 
 To-Do (Updated 02.13.2017)
-- Add additional support to nvd3 to dynamic data
-- Prettify URL
-- Refactor code (module-based)
+- Add additional support to nvd3 to dynamic data (in-progress)
+- Prettify URLs
+- Refactor code (from service-based to module-based)
 - Exploring integration to Node.js runtime
+- ES6 refactoring
