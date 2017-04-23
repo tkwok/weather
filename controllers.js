@@ -28,7 +28,7 @@
             }
     }]);
     
-    weatherApp.controller("sideNavController", ['$scope', '$timeout', '$mdSidenav',         function ($scope, $timeout, $mdSidenav) {
+    weatherApp.controller("sideNavController", ['$scope', '$timeout', '$mdSidenav', function ($scope, $timeout, $mdSidenav) {
       /* TODO handle sidenav data/logic here */
     }]);
     
@@ -115,8 +115,11 @@
             // delete existing barChartData values array 
             _.first($scope.barChartData).values = [];
             
-            $scope.weatherResult.$promise.then(function(weatherItem) {
+            // dynamically changes y axis label when barchart data type changed
+            $scope.barChartOptions.chart.yAxis.axisLabel = $scope.barChart.selectedBarChartDataType.displayName;
                 
+            $scope.weatherResult.$promise.then(function(weatherItem) {
+    
                 function getValueType(item) {
                     switch($scope.barChart.selectedBarChartDataType.id) {
                         case "tempHigh": return $scope.convertTemp(item.temp.max, $scope.forecast.selectedTempUnits.id); break;
@@ -126,6 +129,7 @@
                     }
                 }
                 
+                // update barchart data from response data
                  _.forEach(weatherItem.list, function(item) {                     
                      _.first($scope.barChartData).values.push(
                          {'label': $filter('date')($scope.convertToDate(item.dt), barChartDateFormat), 

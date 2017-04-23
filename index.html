@@ -66,18 +66,22 @@
                     </div>
                 </md-toolbar>
                 <md-list>
-                    <md-item>
-            
-                            <md-item-content md-ink-ripple layout="row" layout-align="start center">
-                                <div class="inset">
-                                    <ng-md-icon icon="#"></ng-md-icon>
-                                </div>
-                                <div class="inset">Manage Account</div>
-                            </md-item-content>
-                        
-                    </md-item>
-                    
-                    <md-divider></md-divider>
+                    <md-list-item>
+                        <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                            <md-button ng-class="{'selected' : it === selected }">
+                                <img ng-src="{{it.iconurl}}" class="face" alt="">
+                                    Manage Account
+                            </md-button>                            
+                        </md-item-content>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                            <md-button ng-class="{'selected' : it === selected }">
+                                <img ng-src="{{it.iconurl}}" class="face" alt="">
+                                    Contact Us
+                            </md-button>                            
+                        </md-item-content>
+                    </md-list-item>                    
                 </md-list>
             </md-sidenav>
             <md-content flex layout-padding layout="row" class="main" class="background-image">

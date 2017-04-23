@@ -26,13 +26,13 @@
                 symbol: "°C"
             }],
             FORECAST_BAR_CHART_DATA_TYPES: [{
-                displayName: "Temperature Highs",
+                displayName: "Temperature Highs (Degree)",
                 id: "tempHigh"
             }, {
-                displayName: "Temperature Lows",
+                displayName: "Temperature Lows (Degree)",
                 id: "tempLows"
             }, {
-                displayName: "Humidity",
+                displayName: "Humidity (%)",
                 id: "humidity"
             }],
             FORECAST_DAYS: [{
